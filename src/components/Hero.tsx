@@ -67,7 +67,7 @@ export function Hero() {
           >
             {/* Scoped Scanline/Glitch Effect Container - Tight Border */}
             <div
-              className="relative w-full h-full border border-cyber-cyan/40 bg-cyber-black/40 overflow-hidden transition-all duration-300 ease-out preserve-3d group-hover:border-cyber-cyan"
+              className="relative w-full h-full border border-cyber-cyan/40 overflow-hidden transition-all duration-300 ease-out preserve-3d group-hover:border-cyber-cyan"
               style={{
                 transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
               }}
