@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative px-4 pt-24 md:pt-0 overflow-hidden">
       <div className="container-custom flex justify-center items-center">
-        {/* Profile Photo - Centered as the primary focus of the landing */}
+        {/* Profile Photo - Now centered as the primary focus */}
         <div className="flex justify-center items-center w-full">
           <div
             className="w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] aspect-[4/5.7] relative group cursor-pointer perspective-1000 fade-in"
