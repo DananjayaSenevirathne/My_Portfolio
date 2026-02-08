@@ -68,6 +68,7 @@ export function Navbar() {
 
     const navLinks = [
         { name: "HOME", id: "home" },
+        { name: "ABOUT", id: "about" },
         { name: "SKILLS", id: "skills" },
         { name: "PROJECTS", id: "projects" },
         { name: "EXPERIENCE", id: "experience" },
