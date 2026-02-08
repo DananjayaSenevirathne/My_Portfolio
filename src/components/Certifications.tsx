@@ -1,4 +1,3 @@
-import React from "react";
 import { Award, ShieldCheck } from "lucide-react";
 
 const certifications = [

@@ -6,7 +6,7 @@ import profileImg from "../assets/profile.png";
 export function Hero() {
   const { tilt, onMouseMove, onMouseLeave } = useTilt(14);
 
-  const nameText = "DANANJAYA\nSENEVIRATHNE_";
+  const nameText = "DANANJAYA\nSENEVIRATHNE";
   const { displayedText, isComplete } = useTypewriter(nameText, 50, 200);
 
   const scrollToContact = () => {
@@ -72,7 +72,7 @@ export function Hero() {
           >
             {/* Scoped Scanline/Glitch Effect Container - Tight Border */}
             <div
-              className="relative w-full h-full border-2 border-cyber-cyan overflow-hidden transition-all duration-300 ease-out preserve-3d group-hover:shadow-[0_0_20px_rgba(0,255,255,0.3)]"
+              className="relative w-full h-full border-2 border-cyber-black overflow-hidden transition-all duration-300 ease-out preserve-3d group-hover:shadow-[0_0_20px_rgba(0,255,255,0.3)]"
               style={{
                 transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
               }}

@@ -1,4 +1,3 @@
-import React from "react";
 
 interface NeonButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "cyan" | "magenta";

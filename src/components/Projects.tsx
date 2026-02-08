@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTilt } from "../hooks/useTilt";
 import { ProjectModal } from "./ProjectModal";
 import { ArrowRight } from "lucide-react";

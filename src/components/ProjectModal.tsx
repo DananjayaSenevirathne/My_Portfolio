@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { X, ExternalLink, Github, Layers } from "lucide-react";
 
 interface Project {
