@@ -10,6 +10,7 @@ import { Certifications } from "./components/Certifications";
 import { Navbar } from "./components/Navbar";
 import { SplashScreen } from "./components/SplashScreen";
 import { Contact } from "./components/Contact";
+import { About } from "./components/About";
 
 export default function App() {
   const [mounted, setMounted] = useState(false);
@@ -47,6 +48,7 @@ export default function App() {
         <div className="page-shell">
           <div className="page">
             <Hero />
+            <About />
             <Skills />
             <Projects />
             <Experience />
