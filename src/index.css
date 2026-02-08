@@ -10,6 +10,10 @@
   --cyber-dark: #0a0a0f;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--cyber-dark);
   color: #e0e0e0;
@@ -22,13 +26,16 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #050505;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #333;
   border: 1px solid var(--cyber-cyan);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--cyber-cyan);
 }
@@ -37,6 +44,7 @@ body {
 .text-shadow-cyan {
   text-shadow: 0 0 5px var(--cyber-cyan), 0 0 10px var(--cyber-cyan);
 }
+
 .text-shadow-magenta {
   text-shadow: 0 0 5px var(--cyber-magenta), 0 0 10px var(--cyber-magenta);
 }
@@ -49,10 +57,44 @@ body {
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
+section {
+  scroll-margin-top: 90px;
+}
+
+.page-shell {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.page {
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 16px;
+}
+
+@media (min-width: 640px) {
+  .page {
+    padding: 0 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page {
+    padding: 0 48px;
+  }
+}
+
+.container-custom {
+  @apply w-full mx-auto;
+}
+
 /* Glitch Effect Utilities */
 .glitch-wrapper {
   position: relative;
 }
+
 .glitch-wrapper::before,
 .glitch-wrapper::after {
   content: attr(data-text);
@@ -62,12 +104,14 @@ body {
   width: 100%;
   height: 100%;
 }
+
 .glitch-wrapper::before {
   left: 2px;
   text-shadow: -1px 0 #ff00ff;
   clip: rect(44px, 450px, 56px, 0);
   animation: glitch-anim 5s infinite linear alternate-reverse;
 }
+
 .glitch-wrapper::after {
   left: -2px;
   text-shadow: -1px 0 #00ffff;
@@ -76,27 +120,66 @@ body {
 }
 
 @keyframes glitch-anim {
-  0% { clip: rect(38px, 9999px, 81px, 0); }
-  20% { clip: rect(6px, 9999px, 19px, 0); }
-  40% { clip: rect(72px, 9999px, 9px, 0); }
-  60% { clip: rect(25px, 9999px, 66px, 0); }
-  80% { clip: rect(54px, 9999px, 32px, 0); }
-  100% { clip: rect(11px, 9999px, 88px, 0); }
+  0% {
+    clip: rect(38px, 9999px, 81px, 0);
+  }
+
+  20% {
+    clip: rect(6px, 9999px, 19px, 0);
+  }
+
+  40% {
+    clip: rect(72px, 9999px, 9px, 0);
+  }
+
+  60% {
+    clip: rect(25px, 9999px, 66px, 0);
+  }
+
+  80% {
+    clip: rect(54px, 9999px, 32px, 0);
+  }
+
+  100% {
+    clip: rect(11px, 9999px, 88px, 0);
+  }
 }
 
 @keyframes glitch-anim2 {
-  0% { clip: rect(12px, 9999px, 56px, 0); }
-  20% { clip: rect(85px, 9999px, 12px, 0); }
-  40% { clip: rect(33px, 9999px, 95px, 0); }
-  60% { clip: rect(61px, 9999px, 24px, 0); }
-  80% { clip: rect(5px, 9999px, 77px, 0); }
-  100% { clip: rect(92px, 9999px, 43px, 0); }
+  0% {
+    clip: rect(12px, 9999px, 56px, 0);
+  }
+
+  20% {
+    clip: rect(85px, 9999px, 12px, 0);
+  }
+
+  40% {
+    clip: rect(33px, 9999px, 95px, 0);
+  }
+
+  60% {
+    clip: rect(61px, 9999px, 24px, 0);
+  }
+
+  80% {
+    clip: rect(5px, 9999px, 77px, 0);
+  }
+
+  100% {
+    clip: rect(92px, 9999px, 43px, 0);
+  }
 }
 
 /* Extra utilities to avoid missing classes */
 @layer utilities {
-  .perspective-1000 { perspective: 1000px; }
-  .preserve-3d { transform-style: preserve-3d; }
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
 
   /* tailwind line-clamp fallback (so it looks like your screenshot) */
   .line-clamp-2 {
@@ -106,19 +189,29 @@ body {
     overflow: hidden;
   }
 
-  .custom-scrollbar::-webkit-scrollbar { width: 8px; }
-  .custom-scrollbar::-webkit-scrollbar-track { background: #050505; }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #050505;
+  }
+
   .custom-scrollbar::-webkit-scrollbar-thumb {
     background: #333;
     border: 1px solid var(--cyber-cyan);
   }
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--cyber-cyan); }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--cyber-cyan);
+  }
 }
 
 /* helpers for 3d tilt */
 .perspective-1000 {
   perspective: 1000px;
 }
+
 .preserve-3d {
   transform-style: preserve-3d;
 }
@@ -128,12 +221,15 @@ body {
   opacity: 0;
   animation: fadeUp 0.8s ease-out forwards;
 }
+
 .fade-up-delay-1 {
   animation-delay: 0.15s;
 }
+
 .fade-up-delay-2 {
   animation-delay: 0.3s;
 }
+
 .fade-up-delay-3 {
   animation-delay: 0.45s;
 }
@@ -143,8 +239,68 @@ body {
     opacity: 0;
     transform: translateY(16px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Custom Cyber Animations */
+@layer utilities {
+  .animate-scan {
+    animation: scan 2s linear infinite;
+  }
+
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  .scale-up-logo {
+    animation: scale-up 1s ease-out forwards;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 2;
+  }
+}
+
+@keyframes scan {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes blink {
+
+  from,
+  to {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes scale-up {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0);
   }
 }

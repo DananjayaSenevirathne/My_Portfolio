@@ -33,8 +33,8 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-20 relative z-10">
-      <div className="max-w-5xl mx-auto px-4">
+    <section id="experience" className="py-20 relative">
+      <div className="container-custom">
         <div className="flex items-center gap-4 mb-16">
           <div className="h-1 w-10 bg-cyber-green" />
           <h2 className="text-3xl font-bold text-white tracking-wider">
@@ -44,7 +44,8 @@ export function Experience() {
         </div>
 
         <div className="relative">
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gray-800 md:-translate-x-1/2">
+          {/* Vertical line - hidden on mobile */}
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gray-800 md:-translate-x-1/2 hidden md:block">
             <div className="absolute top-0 bottom-0 w-full bg-gradient-to-b from-cyber-cyan via-cyber-magenta to-cyber-cyan animate-pulse opacity-50" />
           </div>
 
@@ -52,28 +53,27 @@ export function Experience() {
             {experiences.map((exp, index) => (
               <div
                 key={exp.id}
-                className={`flex flex-col md:flex-row gap-8 relative ${
-                  index % 2 === 0 ? "md:flex-row-reverse" : ""
-                }`}
+                className={`flex flex-col md:flex-row gap-8 relative ${index % 2 === 0 ? "md:flex-row-reverse" : ""
+                  }`}
               >
-                <div className="absolute left-[-5px] md:left-1/2 top-0 w-3 h-3 bg-cyber-dark border border-cyber-cyan rounded-full md:-translate-x-1.5 z-10 shadow-[0_0_10px_#00ffff]">
+                {/* Timeline dot - hidden on mobile */}
+                <div className="absolute left-[-5px] md:left-1/2 top-0 w-3 h-3 bg-cyber-dark border border-cyber-cyan rounded-full md:-translate-x-1.5 z-10 shadow-[0_0_10px_#00ffff] hidden md:block">
                   <div className="absolute inset-0 bg-cyber-cyan animate-ping opacity-75 rounded-full" />
                 </div>
 
-                <div className="flex-1 ml-6 md:ml-0">
+                <div className="flex-1">
                   <div
-                    className={`bg-cyber-gray/50 border border-gray-800 p-6 relative group hover:border-cyber-cyan transition-colors duration-300 ${
-                      index % 2 === 0 ? "md:mr-12" : "md:ml-12"
-                    }`}
+                    className={`bg-cyber-gray/50 border border-gray-800 p-6 relative group hover:border-cyber-cyan transition-colors duration-300 ${index % 2 === 0 ? "md:mr-12" : "md:ml-12"
+                      }`}
                   >
                     <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-cyber-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-cyber-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-2">
                       <h3 className="text-xl font-bold text-white group-hover:text-cyber-cyan transition-colors">
                         {exp.role}
                       </h3>
-                      <span className="text-xs font-mono text-cyber-magenta border border-cyber-magenta/30 px-2 py-1">
+                      <span className="text-xs font-mono text-cyber-magenta border border-cyber-magenta/30 px-2 py-1 whitespace-nowrap">
                         {exp.period}
                       </span>
                     </div>

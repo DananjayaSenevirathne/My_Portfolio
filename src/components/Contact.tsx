@@ -5,7 +5,6 @@ import {
   CheckCircle,
   AlertCircle,
   Loader2,
-  Github,
   Linkedin,
   Instagram,
   MessageCircle,
@@ -93,15 +92,16 @@ export function Contact() {
 
       setTimeout(() => setFormState("idle"), 2500);
     } catch (err) {
+      console.error(err);
       setFormState("error");
       setTimeout(() => setFormState("idle"), 2500);
     }
   }
 
   return (
-    <section id="contact" className="py-20 relative z-10">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-cyber-gray/30 border border-gray-800 p-8 md:p-12 relative overflow-hidden">
+    <section id="contact" className="py-20 relative">
+      <div className="container-custom">
+        <div className="bg-cyber-gray/30 border border-gray-800 p-6 md:p-12 relative overflow-hidden">
           {/* Background Grid */}
           <div
             className="absolute inset-0 opacity-10"
@@ -113,10 +113,10 @@ export function Contact() {
 
           <div className="relative z-10">
             <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-shadow-magenta">
+              <h2 className="text-2xl md:text-4xl font-bold text-white mb-4 text-shadow-magenta">
                 INITIATE_COMMUNICATION
               </h2>
-              <p className="text-gray-400 font-mono">
+              <p className="text-gray-400 font-mono text-sm">
                 Ready to collaborate? Transmit your data below.
               </p>
 

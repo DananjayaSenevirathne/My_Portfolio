@@ -7,22 +7,22 @@ import portfolioImg from "../assets/portfolio.png";
 import thesilentseaImg from "../assets/thesilentsea.png";
 
 const projects = [
-{
-  id: 1,
-  title: "WorkzUp",
-  description:
-    "Job matching web platform connecting job seekers with verified employers for part-time and short-term opportunities. Includes secure authentication, job posting, and application management workflows.",
-  image: workzupImg,
-tech: ["HTML", "Css", "Js"],
-  liveLink: "https://www.workzup.com.lk/home.html", // put real link if you have
-  repoLink: "https://github.com/AdhishaSamarasinghe/Workzup.com.lk.git", // put GitHub link if you have
-  details: {
-    challenge:
-      "Designing a smooth job posting and application flow while keeping user data protected.",
-    solution:
-      "Built structured forms and validation, implemented secure authentication.",
+  {
+    id: 1,
+    title: "WorkzUp",
+    description:
+      "Job matching web platform connecting job seekers with verified employers for part-time and short-term opportunities. Includes secure authentication, job posting, and application management workflows.",
+    image: workzupImg,
+    tech: ["HTML", "Css", "Js"],
+    liveLink: "https://www.workzup.com.lk/home.html", // put real link if you have
+    repoLink: "https://github.com/AdhishaSamarasinghe/Workzup.com.lk.git", // put GitHub link if you have
+    details: {
+      challenge:
+        "Designing a smooth job posting and application flow while keeping user data protected.",
+      solution:
+        "Built structured forms and validation, implemented secure authentication.",
+    },
   },
-},
 
 
   {
@@ -32,7 +32,7 @@ tech: ["HTML", "Css", "Js"],
       "Responsive portfolio website to showcase skills, academic projects, and personal info with smooth navigation and clean structure",
     image:
       portfolioImg,
-    tech: ["Next.js", "Tailwind","TypeScript"],
+    tech: ["Next.js", "Tailwind", "TypeScript"],
     liveLink: "#",
     repoLink: "#",
     details: {
@@ -47,7 +47,7 @@ tech: ["HTML", "Css", "Js"],
       "The Silent Sea is an awareness web platform designed to educate users about marine life protection and encourage real action. It includes key sections like volunteering, feedback collection, a team page, sitemap navigation, and user profiles to create a structured and engaging experience.",
     image:
       thesilentseaImg,
-    tech: ["HTML", "Css", "Js", ],
+    tech: ["HTML", "Css", "Js",],
     liveLink: "#",
     repoLink: "#",
     details: {
@@ -132,8 +132,8 @@ export function Projects() {
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[number] | null>(null);
 
   return (
-    <section id="projects" className="py-20 relative z-10">
-      <div className="max-w-7xl mx-auto px-4">
+    <section id="projects" className="py-20 relative">
+      <div className="container-custom">
         <div className="flex items-center gap-4 mb-16">
           <div className="h-1 w-10 bg-cyber-magenta" />
           <h2 className="text-3xl font-bold text-white tracking-wider">

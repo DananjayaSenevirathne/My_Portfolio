@@ -5,33 +5,30 @@ export function useTypewriter(text: string, speed = 50, startDelay = 0) {
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    let timeoutId: number | undefined;
-    let startTimeoutId: number | undefined;
-
     setDisplayedText("");
     setIsComplete(false);
 
-    const startTyping = () => {
-      let index = 0;
+    let index = 0;
+    let timeoutId: number;
 
+    const startTyping = () => {
       const typeChar = () => {
         if (index < text.length) {
-          setDisplayedText((prev) => prev + text.charAt(index));
-          index += 1;
+          setDisplayedText(text.slice(0, index + 1));
+          index++;
           timeoutId = window.setTimeout(typeChar, speed);
         } else {
           setIsComplete(true);
         }
       };
-
-      timeoutId = window.setTimeout(typeChar, speed);
+      typeChar();
     };
 
-    startTimeoutId = window.setTimeout(startTyping, startDelay);
+    const initialTimeoutId = window.setTimeout(startTyping, startDelay);
 
     return () => {
-      if (timeoutId) window.clearTimeout(timeoutId);
-      if (startTimeoutId) window.clearTimeout(startTimeoutId);
+      window.clearTimeout(initialTimeoutId);
+      window.clearTimeout(timeoutId);
     };
   }, [text, speed, startDelay]);
 

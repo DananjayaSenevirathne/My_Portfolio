@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { X, ExternalLink, Github, Layers } from "lucide-react";
 
 interface Project {
+  // ... (keep interface as is)
   id: number;
   title: string;
   description: string;
@@ -22,26 +23,40 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = "8px"; // Prevent layout shift from scrollbar removal
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8">
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 md:p-8">
+      <div className="absolute inset-0 bg-black/95 backdrop-blur-md" onClick={onClose} />
 
-      <div className="relative w-full max-w-4xl bg-cyber-dark border border-cyber-cyan shadow-[0_0_30px_rgba(0,255,255,0.2)] animate-in fade-in zoom-in duration-300 max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <div className="relative w-full h-full md:h-auto max-w-4xl bg-cyber-dark border-x md:border border-cyber-cyan shadow-[0_0_30px_rgba(0,255,255,0.2)] animate-in fade-in zoom-in duration-300 md:max-h-[90vh] overflow-y-auto overscroll-contain custom-scrollbar overflow-x-hidden">
         <div className="flex items-center justify-between p-4 border-b border-gray-800 bg-cyber-gray/50 sticky top-0 z-10 backdrop-blur-md">
           <div className="flex items-center gap-2">
             <Layers className="text-cyber-cyan w-5 h-5" />
-            <span className="font-mono text-sm text-cyber-cyan">
+            <span className="font-mono text-xs md:text-sm text-cyber-cyan">
               PROJECT_FILE: {project.id.toString().padStart(3, "0")}
             </span>
           </div>
-          <button onClick={onClose} className="text-gray-400 hover:text-cyber-magenta transition-colors">
+          <button onClick={onClose} className="text-gray-400 hover:text-cyber-magenta transition-colors p-2">
             <X size={24} />
           </button>
         </div>
 
-        <div className="p-6 md:p-8 space-y-8">
+        <div className="p-4 md:p-8 space-y-8 overflow-x-hidden">
           <div className="relative aspect-video w-full overflow-hidden border border-gray-800 group">
             <img
               src={project.image}
@@ -49,7 +64,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-cyber-dark to-transparent opacity-60" />
-            <h2 className="absolute bottom-4 left-4 text-3xl md:text-4xl font-bold text-white text-shadow-cyan">
+            <h2 className="absolute bottom-4 left-4 text-2xl md:text-4xl font-bold text-white text-shadow-cyan">
               {project.title}
             </h2>
           </div>
@@ -57,11 +72,11 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2 space-y-6">
               <div>
-                <h3 className="text-cyber-cyan font-bold mb-2 text-lg flex items-center gap-2">
+                <h3 className="text-cyber-cyan font-bold mb-2 text-base md:text-lg flex items-center gap-2">
                   <span className="w-2 h-2 bg-cyber-cyan inline-block" />
                   MISSION_BRIEF
                 </h3>
-                <p className="text-gray-300 leading-relaxed">{project.description}</p>
+                <p className="text-gray-300 leading-relaxed text-sm md:text-base">{project.description}</p>
               </div>
 
               <div className="grid gap-4">

@@ -26,14 +26,14 @@ const skills = [
 
   { name: "HTML", icon: Code, level: 85 },
   { name: "CSS", icon: Code, level: 80 },
-  
+
 ];
 
 export function Skills() {
   return (
-    <section id="skills" className="py-20 relative z-10">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center gap-4 mb-12">
+    <section id="skills" className="py-20 relative">
+      <div className="container-custom">
+        <div className="flex items-center gap-4 mb-16">
           <div className="h-1 w-10 bg-cyber-cyan" />
           <h2 className="text-3xl font-bold text-white tracking-wider">
             SYSTEM_CAPABILITIES
@@ -41,7 +41,7 @@ export function Skills() {
           <div className="h-1 flex-1 bg-gray-800" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {skills.map((skill) => (
             <div key={skill.name} className="group relative p-1">
               <div className="absolute inset-0 bg-gradient-to-r from-cyber-cyan to-cyber-magenta opacity-0 group-hover:opacity-100 transition-opacity duration-300 clip-path-hex" />

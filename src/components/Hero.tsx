@@ -1,7 +1,5 @@
-import { useMemo } from "react";
 import { useTypewriter } from "../hooks/useTypewriter";
 import { NeonButton } from "./ui/NeonButton";
-import { GlitchText } from "./ui/GlitchText";
 import { ChevronDown } from "lucide-react";
 import { useTilt } from "../hooks/useTilt";
 import profileImg from "../assets/profile.png";
@@ -9,7 +7,7 @@ import profileImg from "../assets/profile.png";
 export function Hero() {
   const { tilt, onMouseMove, onMouseLeave } = useTilt(14);
 
-  const nameText = useMemo(() => "DDANANJAYA\nSENEVIRATHNE", []);
+  const nameText = "DANANJAYA\nSENEVIRATHNE";
   const { displayedText, isComplete } = useTypewriter(nameText, 50, 200);
 
   const scrollToContact = () => {
@@ -21,81 +19,83 @@ export function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center relative z-10 px-4 pt-24">
-      <div className="max-w-4xl w-full text-center space-y-8 relative">
-        {/* Decorative corners */}
-        <div className="absolute top-24 left-6 md:left-10 w-20 h-20 border-l-2 border-t-2 border-cyber-cyan opacity-50 hidden md:block" />
-        <div className="absolute bottom-20 right-6 md:right-10 w-20 h-20 border-r-2 border-b-2 border-cyber-magenta opacity-50 hidden md:block" />
+    <section id="home" className="min-h-screen flex items-center relative px-4 pt-24 md:pt-0 overflow-hidden">
+      <div className="container-custom grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+        {/* Left Column: About Block */}
+        <div className="order-2 md:order-1 space-y-8 relative text-center md:text-left">
+          {/* Decorative corners for the about block */}
+          <div className="absolute -top-10 -left-6 w-12 h-12 border-l-2 border-t-2 border-cyber-cyan opacity-30 hidden lg:block" />
 
-        <p className="text-cyber-cyan tracking-[0.2em] text-sm md:text-base animate-pulse fade-up">
-          SYSTEM_INITIALIZED...
-        </p>
+          <div className="space-y-4">
+            <h1 className="text-[clamp(2.5rem,8vw,4.5rem)] font-bold tracking-tight min-h-[2.4em] md:min-h-[2em]">
+              <span className="text-white text-shadow-cyan whitespace-pre-line leading-[1.1]">
+                {displayedText}
+              </span>
+              <span className="animate-blink text-cyber-magenta">_</span>
+            </h1>
 
-        {/* Avatar Card (tilt + hover like projects) */}
-        <div
-          className="mx-auto mt-2 mb-2 w-56 h-56 md:w-90 md:h-88 lg:w-82 lg:h-80 relative group cursor-pointer perspective-1000 fade-up fade-up-delay-1"
-          onMouseMove={onMouseMove}
-          onMouseLeave={onMouseLeave}
-        >
-          {/* gradient halo */}
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyber-cyan to-cyber-magenta opacity-25 blur-md group-hover:opacity-60 transition-opacity duration-300" />
+            <div className={`transition-all duration-700 ${isComplete ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+              <div className="text-base md:text-2xl text-cyber-cyan font-bold tracking-wider mb-6 uppercase leading-tight">
+                <div>COMPUTER SCIENCE UNDERGRADUATE</div>
+                <div>FULL STACK PROJECT BUILDER</div>
+              </div>
 
-          <div
-            className="relative w-full h-full rounded-2xl border border-gray-800 bg-cyber-gray/20 overflow-hidden transition-transform duration-100 ease-out preserve-3d group-hover:border-cyber-cyan"
-            style={{
-              transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
-            }}
-          >
-            <img
-              src={profileImg}
-              alt="Profile"
-              className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500 scale-[1.03] group-hover:scale-[1.08]"
-              draggable={false}
-            />
+              <p className="max-w-xl mx-auto md:mx-0 text-gray-400 leading-relaxed mb-10 text-sm md:text-lg border-l-2 border-cyber-magenta pl-6 text-left">
+                Building secure, scalable, and user-focused web applications.
+                Experienced in team and individual projects using React.js, Spring Boot, and MySQL.
+                Currently seeking internship/junior opportunities.
+              </p>
 
-            {/* scan overlay */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-tr from-transparent via-white to-transparent" />
-
-            {/* corner accents like project cards */}
-            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-cyber-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-cyber-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-cyber-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyber-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                <NeonButton variant="cyan" onClick={scrollToProjects} className="w-full sm:w-auto px-10 py-4 text-sm font-bold tracking-[0.2em]">
+                  VIEW_PROJECTS
+                </NeonButton>
+                <NeonButton variant="magenta" onClick={scrollToContact} className="w-full sm:w-auto px-10 py-4 text-sm font-bold tracking-[0.2em]">
+                  CONTACT_ME
+                </NeonButton>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Name */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight min-h-[1.2em]">
-          <span className="text-white text-shadow-cyan whitespace-pre-line">
-            {displayedText}
-          </span>
-          <span className="animate-blink text-cyber-magenta">_</span>
-        </h1>
+        {/* Right Column: Profile Photo */}
+        <div className="order-1 md:order-2 flex justify-center md:justify-end mt-8 md:mt-0">
+          <div
+            className="w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] aspect-[4/5.7] relative group cursor-pointer perspective-1000 fade-in"
+            onMouseMove={onMouseMove}
+            onMouseLeave={onMouseLeave}
+          >
+            {/* Scoped Scanline/Glitch Effect Container - Tight Border */}
+            <div
+              className="relative w-full h-full border border-cyber-cyan/40 bg-cyber-black/40 overflow-hidden transition-all duration-300 ease-out preserve-3d group-hover:border-cyber-cyan"
+              style={{
+                transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
+              }}
+            >
+              <img
+                src={profileImg}
+                alt="Profile"
+                className="w-full h-full object-cover object-center grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700 scale-[1.05] group-hover:scale-[1.1]"
+                draggable={false}
+              />
 
-        {/* Rest appears after typing */}
-        <div className={`transition-opacity duration-700 ${isComplete ? "opacity-100" : "opacity-0"}`}>
-          <h2 className="text-xl md:text-3xl text-gray-400 mb-6 font-light fade-up fade-up-delay-2">
-            <GlitchText text="COMPUTER SCIENCE UNDERGRADUATE" />
-          </h2>
+              {/* Scanline Effect scoped to image */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30 group-hover:opacity-50 transition-opacity">
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] animate-scan" />
+              </div>
 
-          <p className="max-w-2xl mx-auto text-gray-400 leading-relaxed mb-10 text-sm md:text-base border-l-2 border-cyber-magenta pl-4 text-left md:text-center md:border-l-0 md:pl-0 fade-up fade-up-delay-3">
-            Building secure, scalable, and user-focused web applications.
-            Experienced in individual + team projects using React.js, Spring Boot, and MySQL.
-            Currently seeking internship / junior opportunities to contribute and grow fast.
-          </p>
+              {/* Glitch Overlay on Hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-tr from-cyber-magenta via-transparent to-cyber-cyan" />
+            </div>
 
-          <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <NeonButton variant="cyan" onClick={scrollToProjects}>
-              View Projects
-            </NeonButton>
-            <NeonButton variant="magenta" onClick={scrollToContact}>
-              Contact Me
-            </NeonButton>
+            {/* Subtle glow on hover */}
+            <div className="absolute -inset-0.5 bg-cyber-cyan/10 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-10 animate-bounce text-cyber-cyan opacity-50">
+      {/* Scroll indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-cyber-cyan opacity-30 hidden md:block">
         <ChevronDown size={32} />
       </div>
     </section>

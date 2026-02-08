@@ -27,8 +27,8 @@ const certifications = [
 
 export function Certifications() {
   return (
-    <section className="py-20 relative z-10 bg-cyber-black/50">
-      <div className="max-w-6xl mx-auto px-4">
+    <section className="py-20 relative bg-cyber-black/50">
+      <div className="container-custom">
         <div className="flex items-center gap-4 mb-12 justify-center">
           <div className="h-px w-10 bg-gray-700" />
           <h2 className="text-2xl font-bold text-gray-400 tracking-widest uppercase">

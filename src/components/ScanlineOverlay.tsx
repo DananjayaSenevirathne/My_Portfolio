@@ -2,7 +2,7 @@ import React from "react";
 
 export function ScanlineOverlay() {
   return (
-    <div className="fixed inset-0 pointer-events-none z-40 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-30 overflow-hidden">
       <div className="w-full h-2 bg-white/5 absolute animate-scanline shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
 
       <div
