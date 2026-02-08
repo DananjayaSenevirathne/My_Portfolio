@@ -1,5 +1,4 @@
 import { useTypewriter } from "../hooks/useTypewriter";
-import { NeonButton } from "./ui/NeonButton";
 import { ChevronDown } from "lucide-react";
 import { useTilt } from "../hooks/useTilt";
 import profileImg from "../assets/profile.png";
@@ -7,7 +6,7 @@ import profileImg from "../assets/profile.png";
 export function Hero() {
   const { tilt, onMouseMove, onMouseLeave } = useTilt(14);
 
-  const nameText = "DANANJAYA\nSENEVIRATHNE";
+  const nameText = "DANANJAYA\nSENEVIRATHNE_";
   const { displayedText, isComplete } = useTypewriter(nameText, 50, 200);
 
   const scrollToContact = () => {
@@ -40,19 +39,25 @@ export function Hero() {
                 <div>FULL STACK PROJECT BUILDER</div>
               </div>
 
-              <p className="max-w-xl mx-auto md:mx-0 text-gray-400 leading-relaxed mb-10 text-sm md:text-lg border-l-2 border-cyber-magenta pl-6 text-left">
+              <p className="max-w-2xl mx-auto md:mx-0 text-gray-400 leading-[1.8] mb-10 text-sm md:text-lg border-l-2 border-cyber-magenta pl-6 text-left">
                 Building secure, scalable, and user-focused web applications.
                 Experienced in team and individual projects using React.js, Spring Boot, and MySQL.
                 Currently seeking internship/junior opportunities.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                <NeonButton variant="cyan" onClick={scrollToProjects} className="w-full sm:w-auto px-10 py-4 text-sm font-bold tracking-[0.2em]">
+                <button
+                  onClick={scrollToProjects}
+                  className="w-full sm:w-auto px-10 py-4 text-sm font-bold tracking-[0.2em] border-2 border-cyber-cyan text-cyber-cyan hover:bg-cyber-cyan/10 transition-all duration-300 shadow-[0_0_15px_rgba(0,255,255,0.2)]"
+                >
                   VIEW_PROJECTS
-                </NeonButton>
-                <NeonButton variant="magenta" onClick={scrollToContact} className="w-full sm:w-auto px-10 py-4 text-sm font-bold tracking-[0.2em]">
+                </button>
+                <button
+                  onClick={scrollToContact}
+                  className="w-full sm:w-auto px-10 py-4 text-sm font-bold tracking-[0.2em] border-2 border-cyber-magenta text-cyber-magenta hover:bg-cyber-magenta/10 transition-all duration-300 shadow-[0_0_15px_rgba(255,0,255,0.2)]"
+                >
                   CONTACT_ME
-                </NeonButton>
+                </button>
               </div>
             </div>
           </div>
@@ -67,7 +72,7 @@ export function Hero() {
           >
             {/* Scoped Scanline/Glitch Effect Container - Tight Border */}
             <div
-              className="relative w-full h-full border border-cyber-cyan/40 overflow-hidden transition-all duration-300 ease-out preserve-3d group-hover:border-cyber-cyan"
+              className="relative w-full h-full border-2 border-cyber-cyan overflow-hidden transition-all duration-300 ease-out preserve-3d group-hover:shadow-[0_0_20px_rgba(0,255,255,0.3)]"
               style={{
                 transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
               }}
@@ -75,7 +80,7 @@ export function Hero() {
               <img
                 src={profileImg}
                 alt="Profile"
-                className="w-full h-full object-cover object-center grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700 scale-[1.05] group-hover:scale-[1.1]"
+                className="w-full h-full object-cover object-center group-hover:grayscale-0 transition-all duration-700 scale-[1.05] group-hover:scale-[1.1]"
                 draggable={false}
               />
 

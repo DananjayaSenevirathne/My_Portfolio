@@ -107,16 +107,12 @@ export function Navbar() {
                         <button
                             key={link.id}
                             onClick={() => scrollToSection(link.id)}
-                            className={`transition-all duration-300 relative group ${activeSection === link.id
-                                ? "text-cyber-cyan text-shadow-cyan"
-                                : "hover:text-cyber-cyan text-gray-400 font-medium"
+                            className={`transition-all duration-300 px-3 py-1 rounded relative group ${activeSection === link.id
+                                ? "text-cyber-cyan text-shadow-cyan bg-cyber-cyan/10 ring-1 ring-cyber-cyan/30"
+                                : "hover:text-cyber-cyan text-gray-400 font-medium hover:bg-white/5"
                                 }`}
                         >
                             {link.name}
-                            <span className={`absolute -bottom-1 left-0 h-0.5 bg-cyber-cyan transition-all duration-300 ${activeSection === link.id
-                                ? "w-full shadow-[0_0_8px_var(--cyber-cyan)]"
-                                : "w-0 group-hover:w-full"
-                                }`} />
                         </button>
                     ))}
                 </div>
